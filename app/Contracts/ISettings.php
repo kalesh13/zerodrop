@@ -13,25 +13,4 @@ interface ISettings extends PageContract
      * settings of this web application.
      */
     public function shareSettings();
-
-    /**
-     * Returns true if the application is set to use external ticketing systems.
-     * 
-     * @return bool
-     */
-    public function useExternalTickets();
-
-    /**
-     * Returns the external ticket email from the settings.
-     * 
-     * @return string
-     */
-    public function externalTicketEmail();
-
-    /**
-     * Returns the reCaptch secret from the settings.
-     * 
-     * @return string
-     */
-    public function recaptchaSecret();
 }

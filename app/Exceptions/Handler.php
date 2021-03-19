@@ -38,4 +38,22 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $e)
+    {
+        // Load settings data if settings has not been already loaded.
+        if (!$request->ajax() && !view()->shared('settings')) {
+            ($this->container->make(ISettings::class))->shareSettings();
+        }
+        return parent::render($request, $e);
+    }
 }
