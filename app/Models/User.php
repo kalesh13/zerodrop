@@ -96,29 +96,6 @@ class User extends Authenticatable implements Roles, MustVerifyEmail
     }
 
     /**
-     * Returns the validation rules of this model.
-     * 
-     * If a User model is passed as an argument, then the validation should ignore
-     * the given user model when performing a unique index check.
-     * 
-     * @param \App\Models\User $user
-     * @return array
-     */
-    public static function validationRules($user = null)
-    {
-        $unique_user = Rule::unique('users');
-
-        if (!is_null($user)) {
-            $unique_user = $unique_user->ignoreModel($user);
-        }
-
-        return [
-            'email' => ['required', 'string', 'email', 'max:255', $unique_user],
-            'password' => 'required|string|min:6|confirmed',
-        ];
-    }
-
-    /**
      * Gets the token expiry set by the user. Override this function
      * on \App\User to have custom expiry duration.
      * 
@@ -175,5 +152,28 @@ class User extends Authenticatable implements Roles, MustVerifyEmail
     public function passwordResetUrl($token, $email)
     {
         return route('password.reset', ['token' => $token, 'email' => $email]);
+    }
+
+    /**
+     * Returns the validation rules of this model.
+     * 
+     * If a User model is passed as an argument, then the validation should ignore
+     * the given user model when performing a unique index check.
+     * 
+     * @param \App\Models\User $user
+     * @return array
+     */
+    public static function validationRules($user = null)
+    {
+        $unique_user = Rule::unique('users');
+
+        if (!is_null($user)) {
+            $unique_user = $unique_user->ignoreModel($user);
+        }
+
+        return [
+            'email' => ['required', 'string', 'email', 'max:255', $unique_user],
+            'password' => 'required|string|min:6|confirmed',
+        ];
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Repositories\User;
 
-interface IUserRepo
+use App\Repositories\IBaseRepo;
+
+interface IUserRepo extends IBaseRepo
 {
     /**
      * Creates a new user on the application.
