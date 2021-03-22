@@ -36,6 +36,28 @@ class PageController extends Controller
     }
 
     /**
+     * Renders the about page if it exists on the page factory or throws a not found 
+     * exception.
+     * 
+     * @return \Illuminate\View\View
+     */
+    public function about()
+    {
+        return $this->show('about');
+    }
+
+    /**
+     * Renders the contact page if it exists on the page factory or throws a not found 
+     * exception.
+     * 
+     * @return \Illuminate\View\View
+     */
+    public function contact()
+    {
+        return $this->show('contact');
+    }
+
+    /**
      * Renders the given page if it exists or throws a not found exception.
      * 
      * @param string $page
