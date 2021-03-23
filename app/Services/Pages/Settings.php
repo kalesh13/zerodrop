@@ -4,6 +4,11 @@ namespace App\Services\Pages;
 
 use App\Contracts\ISettings;
 
+/**
+ * Magic properties and methods
+ * 
+ * @property string $contact_email
+ */
 class Settings extends PageBase implements ISettings
 {
     /**
@@ -23,6 +28,16 @@ class Settings extends PageBase implements ISettings
     public function shareSettings()
     {
         view()->share('settings', $this->properties());
+    }
+
+    /**
+     * Returns the email address to which the contact form should be forwarded.
+     * 
+     * @return string
+     */
+    public function contactEmail()
+    {
+        return $this->contact_email;
     }
 
     /**

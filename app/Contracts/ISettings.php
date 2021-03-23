@@ -13,4 +13,11 @@ interface ISettings extends PageContract
      * settings of this web application.
      */
     public function shareSettings();
+
+    /**
+     * Returns the email address to which the contact form should be forwarded.
+     * 
+     * @return string
+     */
+    public function contactEmail();
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Subscribers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Repositories\Subscriber\ISubscriberRepo;
 
 class SubscriberController extends Controller

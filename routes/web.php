@@ -38,15 +38,15 @@ Route::get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 |
 */
 
-Route::get('/', 'PageController@home');
-Route::get('/about', 'PageController@about');
-Route::get('/contact', 'PageController@contact');
-Route::get('/courses', 'CourseController@show');
-Route::get('/course/{id}/{title}', 'CourseController@showCourse');
+Route::get('/', 'Pages\PageController@home');
+Route::get('/about', 'Pages\PageController@about');
+Route::get('/contact', 'Pages\PageController@contact');
+Route::get('/courses', 'Courses\CourseController@renderAll');
+Route::get('/course/{id}/{title}', 'Courses\CourseController@renderCourse');
 
-Route::post('/contact', 'ContactController@message');
-Route::post('/subscribe', 'SubscriberController@subscribe');
-Route::get('/unsubscribe', 'SubscriberController@unsubscribe');
+Route::post('/contact', 'Tickets\TicketController@create');
+Route::post('/subscribe', 'Subscribers\SubscriberController@subscribe');
+Route::get('/unsubscribe', 'Subscribers\SubscriberController@unsubscribe');
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ Route::prefix('admin')->middleware(['admin.guest'])->group(function () {
 });
 
 Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
-    Route::get('page/seed', 'Page\PageController@seed');
+    Route::get('page/seed', 'Pages\PageController@seed');
     Route::post('logout', 'Auth\LoginController@logout');
     Route::get('/{page?}', 'Admin\AdminController@renderDashboard');
     Route::get('/{page?}/{id?}/{sub_page?}/{sub_id?}', 'Admin\AdminController@renderDashboard');

@@ -20,23 +20,22 @@ Route::prefix('admin')->group(function () {
     Route::post('reset', 'Auth\ResetPasswordController@reset');
     Route::post('forgotPassword', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 
-    Route::get('courses', 'CourseController@getCourses');
+    Route::get('courses', 'Courses\CourseController@all');
 });
 
 Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::post('logout', 'Auth\LoginController@logout');
     Route::post('imageUpload', 'FilesController@storeImage');
     Route::post('docUpload', 'FilesController@storeDocs');
-    Route::post('course', 'CourseController@store');
-    Route::patch('course/{id}', 'CourseController@update');
-    Route::get('course/{id}', 'CourseController@retreive');
-    Route::patch('page/{page}', 'PageController@update');
-    Route::get('page/{page}', 'PageController@retreive');
+    Route::post('course', 'Courses\CourseController@create');
+    Route::patch('course/{id}', 'Courses\CourseController@update');
+    Route::get('course/{id}', 'Courses\CourseController@retreive');
+    Route::patch('page/{page}', 'Pages\PageController@update');
+    Route::get('page/{page}', 'Pages\PageController@retreive');
 });
 
-
-Route::get('courses', 'CourseController@getActiveCourses');
-Route::get('courses/all/{limit?}', 'CourseController@getAllActiveCourses');
+Route::get('courses', 'Courses\CourseController@getActiveCourses');
+Route::get('courses/all/{limit?}', 'Courses\CourseController@getAllActiveCourses');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

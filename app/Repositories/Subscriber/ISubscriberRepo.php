@@ -25,4 +25,12 @@ interface ISubscriberRepo extends ISimpleModelRepo
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function unsubscribe($email);
+
+    /**
+     * Resolves a new service for the given model.
+     * 
+     * @param \Illuminate\Database\Eloquent\Model
+     * @return \App\Services\Subscriber\ISubscriberService
+     */
+    public function resolveService($model);
 }

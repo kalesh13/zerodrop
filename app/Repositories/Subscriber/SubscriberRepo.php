@@ -63,7 +63,7 @@ class SubscriberRepo extends SimpleModelRepo implements ISubscriberRepo
     }
 
     /**
-     * Returns paginated coupon list with coupon usage field.
+     * Returns paginated list of all the newsletter subscribers.
      * 
      * @param \Illuminate\Support\Collection $request
      * @param int $per_page
@@ -75,6 +75,8 @@ class SubscriberRepo extends SimpleModelRepo implements ISubscriberRepo
             function ($query) use ($request) {
                 $this->setSearchColumn('email');
                 $this->setSearchOnQuery($query, $request);
+
+                $this->setFilterColumn('subscription');
                 $this->setFilterOnQuery($query, $request);
             }
         )->paginate($per_page);
