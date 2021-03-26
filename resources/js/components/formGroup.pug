@@ -1,0 +1,4 @@
+.form-group
+    label.login-label(v-text="label")
+    block input
+    .small.text-danger.mt-2(v-if="error", v-text="error[0]")

@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "baseUrl": "./resources/js",
+        "paths": {
+            "@admin/*": ["admin/*"],
+            "@pages/*": ["pages/*"],
+            "@store/*": ["store/*"],
+            "@mixins/*": ["mixins/*"],
+            "@components/*": ["components/*"]
+        }
+    }
+}
