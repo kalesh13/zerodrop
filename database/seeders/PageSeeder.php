@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Services\Pages\IPageFactory;
 
-class PageSeeder
+class PageSeeder extends Seeder
 {
     /**
      * Application page factory.

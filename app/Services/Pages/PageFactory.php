@@ -14,7 +14,9 @@ class PageFactory implements IPageFactory
      */
     protected $pages = [
         'home' => \App\Services\Pages\HomePage::class,
-        'homeData' => \App\Services\Pages\HomePageData::class,
+        'about' => \App\Services\Pages\AboutPage::class,
+        'contact' => \App\Services\Pages\ContactPage::class,
+        'settings' => \App\Services\Pages\Settings::class,
     ];
 
     /**
