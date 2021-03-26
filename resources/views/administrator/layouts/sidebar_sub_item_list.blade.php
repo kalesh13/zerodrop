@@ -1,5 +1,5 @@
 @php
-    $sub_menu_id=str_replace(' ','',$text);
+    $sub_menu_id = str_replace(' ','',$text);
 @endphp
 
 <li class='sidebar-item collapsed arrow' data-toggle="collapse" data-target="#{{$sub_menu_id}}">

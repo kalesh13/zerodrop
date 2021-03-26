@@ -2,7 +2,7 @@
 
 @section('title','Subscription | Zerodrop')
 @section('description','Subscribe to our email list to receive latest updates and news via email')
-@section('page_url',"https://zerodrop.in/subscribe")
+@section('page_url','{{url("/subscribe")}}')
 @section('page_name','Subscribe')
 
 @section('main_error')
@@ -13,8 +13,8 @@
     <div class="main-error {{$classTrue?'bg-success':'bg-danger'}}">
         <span class="fa {{$classTrue?'fa-check':'fa-close'}}"></span>
     </div>
-@stop
+@endsection
 
 @section('error_details')
     <span>{{$displayMessage}}</span>
-@stop
+@endsection

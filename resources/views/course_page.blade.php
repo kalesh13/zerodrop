@@ -1,18 +1,9 @@
 @extends('layouts.master')
-
-@section('title')
-    {{$data['meta_title']??'Course | Zerodrop'}}
-@stop
-@section('description')
-    <?php echo $data['meta_description']??'The increasing demand for Valve expertise in the industries and lack of persons with the right knowledge and skills forced us to create an educational program that helps you to stand ahead of others in the market. The Valve Engineer Certification program is tailored to meet the educational needs of the next generation - or anyone who needs a primer on the Valve Industry.';?>
-@stop
-@section('keywords')
-    <?php echo $data['meta_keywords']??'courses, about zerodrop, zerodrop, technical training center, technical training centre, technical, training, center, training centre, technical training, valve, valve engineering, valve design';?>
-@stop
-@section('page_url',"{{url()->current()}}")
-@section('page_name')
-    {{$data['meta_title']??'Course | Zerodrop'}}
-@stop
+@section('title'){{$data['meta_title'] ?? 'Course | Zerodrop'}}@endsection
+@section('description'){{$data['meta_description'] ?? 'The increasing demand for Valve expertise in the industries and lack of persons with the right knowledge and skills forced us to create an educational program that helps you to stand ahead of others in the market. The Valve Engineer Certification program is tailored to meet the educational needs of the next generation - or anyone who needs a primer on the Valve Industry.'}}@endsection
+@section('keywords'){{$data['meta_keywords'] ?? 'courses, about zerodrop, zerodrop, technical training center, technical training centre, technical, training, center, training centre, technical training, valve, valve engineering, valve design'}}@endsection
+@section('page_url','{{url()->current()}}')
+@section('page_name'){{$data['meta_title'] ?? 'Course | Zerodrop'}}@endsection
 
 @section('page-content')
 <div class="content-sections course-content">
@@ -76,7 +67,7 @@
                             Course Fees
                         </div>
                         <div class="desc text-left">
-                            <?php echo $data['course_fees']??'Contact us to know about the fees structure.'?>
+                            {{$data['course_fees'] ?? 'Contact us to know about the fees structure.'}}
                         </div>
                     </div>
                 </div>

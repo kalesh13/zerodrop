@@ -1,15 +1,8 @@
 @extends('layouts.master')
-
-@section('title')
-    {{$data['meta_title']??'Contact | Zerodrop'}}
-@stop
-@section('description')
-    <?php echo $data['meta_description'] ?? "Zerodrop started its operation on August, 2018 and the main office is located at Nettoor Junction in Ernakulam District. Please use the form given below for any enquiry or you could visit us at our office during office hours";?>
-@stop
-@section('keywords')
-    <?php echo $data['meta_keywords']??'contact zerodrop, zerodrop, technical training center, technical training centre, technical, training, center, training centre, technical training, valve, valve engineering, valve design';?>
-@stop
-@section('page_url',"{{url('contact')}}")
+@section('title'){{$data['meta_title'] ?? 'Contact | Zerodrop'}}@endsection
+@section('description'){{$data['meta_description'] ?? "Zerodrop started its operation on August, 2018 and the main office is located at Nettoor Junction in Ernakulam District. Please use the form given below for any enquiry or you could visit us at our office during office hours"}}@endsection
+@section('keywords'){{$data['meta_keywords'] ?? 'contact zerodrop, zerodrop, technical training center, technical training centre, technical, training, center, training centre, technical training, valve, valve engineering, valve design'}}@endsection
+@section('page_url','{{url("/contact")}}')
 @section('page_name','Contact')
 
 @section('page-content')
@@ -31,7 +24,7 @@
         <div class="container content">
             <div class="row">
                 <div class="col-md-6">
-    @include('layouts.contact_form')
+                    @include('layouts.contact_form')
                 </div>
                 <div class="col-md-6">
                     <div class="mb-5">
@@ -76,17 +69,17 @@
                         </div>
                         <p class="ml-4">
                             <a class="social-link" href="{{$settings['fb_url']}}">
-                                    <span class="fa fa-facebook"></span>
-                                </a>
+                                <span class="fa fa-facebook"></span>
+                            </a>
                             <a class="social-link" href="{{$settings['insta_url']}}">
-                                    <span class="fa fa-instagram"></span>
-                                </a>
+                                <span class="fa fa-instagram"></span>
+                            </a>
                             <a class="social-link" href="{{$settings['twitter_url']}}">
-                                    <span class="fa fa-twitter"></span>
-                                </a>
+                                <span class="fa fa-twitter"></span>
+                            </a>
                             <a class="social-link" href="{{$settings['youtube_url']}}">
-                                    <span class="fa fa-youtube"></span>
-                                </a>
+                                <span class="fa fa-youtube"></span>
+                            </a>
                         </p>
                     </div>
                 </div>

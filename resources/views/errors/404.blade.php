@@ -2,7 +2,7 @@
 
 @section('title','Page Not Found | Zerodrop')
 @section('description','The Page you requested was not found. You may have typed the address incorrectly or you may have used an outdated link.')
-@section('page_url',"https://zerodrop.in/404")
+@section('page_url','{{url("/404")}}')
 @section('page_name','Page not found')
 
 @section('main_error')
