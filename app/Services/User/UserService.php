@@ -120,8 +120,6 @@ class UserService extends ModelService implements IUserService
     {
         $result = $this->user->save();
 
-        $this->user->saveProperties($data->except(['email', 'password'])->all());
-
         return $result;
     }
 

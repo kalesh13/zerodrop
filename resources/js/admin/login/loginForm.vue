@@ -1,12 +1,20 @@
 <template lang="pug">
 form.form-horizontal(method='POST', @submit.prevent='onSubmit')
-    custom-input(v-model='email', label='Email address', name='email', type='email', required)
+    custom-input(
+        v-model='email',
+        label='Email address',
+        name='email',
+        type='email',
+        placeholder='yuri@example.com',
+        required
+    )
     custom-input(
         v-model='password',
         label='Password',
         name='password',
         type='password',
-        :error='dp.errors',
+        placeholder='Account password',
+        :error='dp.errors.password',
         required
     )
     .form-group
@@ -34,11 +42,11 @@ export default {
     methods: {
         onSubmit: function () {
             this.dp.formPost(
-                '/api/login',
+                '/api/admin/login',
                 {
                     email: this.email,
                     password: this.password,
-                    client_id: '8VVzvJBHInjfxzsmPojPnxPunmYVbk',
+                    client_id: '65xrzfy4g8aLWNMB1z3kVji7gooMWu',
                 },
                 this.onSuccess,
                 this.onError,
@@ -47,13 +55,15 @@ export default {
         onSuccess: function (data) {
             this.$store.commit('user/setProfileData', data);
 
-            window.location.href = this.$route.query.redirect_to || '/admin';
+            window.location.href = this.$route.query.redirectTo || '/admin';
         },
         onError: function () {
+            let error = ['Invalid email address and/or password.'];
+
             if (this.dp.errors.server_error) {
-                return (this.dp.errors = ['Server error. Please try again later.']);
+                error = ['Server error. Please try again later.'];
             }
-            return (this.dp.errors = ['Invalid email address and/or password.']);
+            return (this.dp.errors.password = error);
         },
     },
     components: { CustomInput },

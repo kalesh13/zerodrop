@@ -56,7 +56,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        $user = $this->user_repo->create($request->all());
+        $user = $this->user_repo->create($request->all(), true);
 
         $this->guard()->login($user);
 

@@ -254,11 +254,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _rheas_vuer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @rheas/vuer */ "./node_modules/@rheas/vuer/index.js");
-/* harmony import */ var _rheas_vuer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_rheas_vuer__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var _rheas_vuer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rheas/vuer */ "./node_modules/@rheas/vuer/index.js");
+/* harmony import */ var _rheas_vuer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_rheas_vuer__WEBPACK_IMPORTED_MODULE_1__);
 
-var dp = new _rheas_vuer__WEBPACK_IMPORTED_MODULE_0__.DataPoster();
-var df = new _rheas_vuer__WEBPACK_IMPORTED_MODULE_0__.DataFetcher();
+
+var dp = new _rheas_vuer__WEBPACK_IMPORTED_MODULE_1__.DataPoster();
+var df = new _rheas_vuer__WEBPACK_IMPORTED_MODULE_1__.DataFetcher();
 /**
  * Returns the profile data saved on the localstorage. Value of user state is initially
  * set to this value.
@@ -310,7 +312,7 @@ var actions = {
 var mutations = {
   setProfileData: function setProfileData(state, data) {
     for (var key in data) {
-      Vue.set(state.profile, key, data[key]);
+      vue__WEBPACK_IMPORTED_MODULE_0__.default.set(state.profile, key, data[key]);
     }
 
     saveToLocalStorage(state.profile);

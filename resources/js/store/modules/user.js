@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { DataPoster, DataFetcher } from '@rheas/vuer';
 
 const dp = new DataPoster();
