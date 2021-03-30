@@ -1,6 +1,6 @@
 <div class="footer">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-section col-lg-4">
                 <a href="/" class="navbar-brand">
                     <img src="{{$settings['logo']}}" alt="Zerodrop"/>

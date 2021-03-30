@@ -36,12 +36,11 @@ const router = new VueRouter({
                 title: 'Administrator Signup | ZeroDrop',
             },
         },
-        /**
         {
             path: '/courses',
             alias: '/',
             name: 'courses',
-            component: () => import('./components/admin-components/course/CourseComponent'),
+            component: () => import('@admin/courses'),
             meta: {
                 title: 'Courses | ZeroDrop',
             },
@@ -49,7 +48,7 @@ const router = new VueRouter({
         {
             path: '/home',
             name: 'home',
-            component: () => import('./components/admin-components/page-editor/HomePage'),
+            component: () => import('@admin/pages/home'),
             meta: {
                 title: 'Edit Page | ZeroDrop',
             },
@@ -57,7 +56,7 @@ const router = new VueRouter({
         {
             path: '/about',
             name: 'about',
-            component: () => import('./components/admin-components/page-editor/AboutPage'),
+            component: () => import('@admin/pages/about'),
             meta: {
                 title: 'Edit Page | ZeroDrop',
             },
@@ -65,7 +64,7 @@ const router = new VueRouter({
         {
             path: '/contact',
             name: 'contact',
-            component: () => import('./components/admin-components/page-editor/ContactPage'),
+            component: () => import('@admin/pages/contact'),
             meta: {
                 title: 'Edit Page | ZeroDrop',
             },
@@ -73,7 +72,7 @@ const router = new VueRouter({
         {
             path: '/settings',
             name: 'settings',
-            component: () => import('./components/admin-components/page-editor/SettingsPage'),
+            component: () => import('@admin/pages/settings'),
             meta: {
                 title: 'Settings | ZeroDrop',
             },
@@ -81,7 +80,7 @@ const router = new VueRouter({
         {
             path: '/team',
             name: 'team',
-            component: () => import('./components/admin-components/profiles/TeamMembers'),
+            component: () => import('@admin/profiles/team'),
             meta: {
                 title: 'Team Members | ZeroDrop',
             },
@@ -89,15 +88,14 @@ const router = new VueRouter({
         {
             path: '/administrators',
             name: 'administrators',
-            component: () => import('./components/admin-components/profiles/Administrators'),
+            component: () => import('@admin/profiles/administrators'),
             meta: {
                 title: 'Administrators | ZeroDrop',
             },
         },
-         */
     ],
 });
-/**
+
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title;
     if (app) {
@@ -105,7 +103,6 @@ router.beforeEach((to, from, next) => {
     }
     next();
 });
- */
 
 router.afterEach(() => {
     if (app) {
@@ -122,16 +119,18 @@ const app = new Vue({
     },
 });
 
-$.extend(true, $.fn.datetimepicker.defaults, {
-    icons: {
-        time: 'fa fa-clock-o',
-        date: 'fa fa-calendar',
-        up: 'fa fa-arrow-up',
-        down: 'fa fa-arrow-down',
-        previous: 'fa fa-chevron-left',
-        next: 'fa fa-chevron-right',
-        today: 'fa fa-calendar-check',
-        clear: 'fa fa-trash-alt',
-        close: 'fa fa-times-circle',
+$.extend(true, $.fn.datetimepicker, {
+    defaults: {
+        icons: {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-arrow-up',
+            down: 'fa fa-arrow-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-calendar-check',
+            clear: 'fa fa-trash-alt',
+            close: 'fa fa-times-circle',
+        },
     },
 });

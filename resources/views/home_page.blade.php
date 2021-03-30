@@ -6,11 +6,11 @@
 @section('page_name','Zerodrop - Technical Training Center')
 
 @section('page-content')
-    <div class="carousel" style="background-image:{{url($data['feature_image'])}}">
+    <div class="carousel" style="background-image:{{url($data['feature_image']||'')}}">
         <div class="carousel-overlay"></div>
         @if($data['carousal_text'])
             <div class="carousel-inner">
-                <div class="animated bounceInUp">
+                <div class="animate__animated animate__bounceInUp">
                     {{$data['carousal_text']}}
                 </div>
             </div>
@@ -35,82 +35,8 @@
                 </ul>
             </div>
         </div>
-        @if($course)
-            <div class="section featured">
-                <div class="container content">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="title text-left">{{$course['title']}}</div>
-                            <div class="featured-content">
-                                <div class="desc-container">
-                                    <div class="desc text-left">
-                                        {!!$course['description']!!}
-                                    </div>
-                                </div>
-                                <div class="actions">
-                                    <a href="{{$course['url']}}">
-                                        <div class="theme-btn reverse all-btn">
-                                            Details
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <img class="curved-img"
-                                src="{{$course['course_image'] ?:'/images/featured_course.jpg'}}"
-                                alt="{{$course['title']}}">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endif
-        <div class="section courses">
-            <div class="title">Courses</div>
-            @if($data['course_description'])
-                <div class="desc">
-                    {{$data['course_description']}}
-                </div>
-            @endif
-            <div class="container content">
-                <router-view>
-                    <home-courses></home-courses>
-                </router-view>
-                <div class="text-center">
-                    <a href="{{url('courses')}}">
-                        <div class="theme-btn all-btn">View All</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="section contact">
-            <div class="title">Contact Us</div>
-            @if($data['contact_description'])
-                <div class="desc">
-                    {{$data['contact_description']}}
-                </div>
-            @endif
-            <div class="container content">
-                <div class="row">
-                    <div class="col-md-6">
-                        @include('layouts.contact_form')
-                        <div class="text-center mt-5">
-                            @if($data['contact_phone'])
-                                <div class="call">Or, Call us at</div>
-                                <div class="phone">
-                                    <span class="fa fa-phone"></span>
-                                    {{$data['contact_phone']}}
-                                </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-md-6 desktop-only">
-                        @if($contact && $contact['map'])
-                            {!!$contact['map']!!}
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
+        <router-view :page-data="{{json_encode($data)}}">
+            @include('layouts.contact_form')
+        </router-view>
     </div>
 @endsection

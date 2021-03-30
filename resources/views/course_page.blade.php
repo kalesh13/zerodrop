@@ -9,7 +9,7 @@
 <div class="content-sections course-content">
     <div class="container-fluid content title-section">
         <div class="container">
-            <div class="row">
+            <div class="row py-5">
                 <div class="col-md-8 column">
                     <div class="title-field">
                         <h1>
@@ -19,7 +19,7 @@
                             {{$data['snippet']}}
                         </div>
                         <div class="duration mt-5">
-                            Starts on {{$data['startDateText']}}
+                            Starts on {{$data['start']}}
                         </div>
                     </div>
                 </div>
@@ -44,16 +44,19 @@
                     <div class="desc">
                         {!!$data['description']!!}
                         <h3>Eligibility</h3>
+                        @if(isset($data['eligibility']))
                         <p>{!!$data['eligibility']!!}</p>
+                        @endif
                     </div>
                     @endif
                 </div>
                 <div class="col-lg-3 course-downloads">
-                    @if($data['application_file'])
+                    @if(isset($data['application_file']))
                     <div class="link">
                         <a href="{{$data['application_file']}}" class="application-form" target="_blank">Application Form</a>
                     </div>
-                    @endif @if($data['brochure_file'])
+                    @endif 
+                    @if(isset($data['brochure_file']))
                     <div class="link">
                         <a href="{{$data['brochure_file']}}" class="brochure" target="_blank">Brochure</a>
                     </div>

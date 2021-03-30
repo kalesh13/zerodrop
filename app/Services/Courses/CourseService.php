@@ -42,7 +42,7 @@ class CourseService extends SimpleModelService implements ICourseService
         $slug = strtolower(str_replace(' ', '-', $title));
 
         $this->course->title = $title;
-        $this->course->active = $data->get('active');
+        $this->course->status = $data->get('status');
         $this->course->slug = $slug;
         $this->course->url = $slug;
 

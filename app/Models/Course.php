@@ -26,7 +26,7 @@ class Course extends Model implements PropertyModelContract
      *
      * @var array
      */
-    protected $appends = ['duration', 'start', 'url'];
+    protected $appends = ['durationText', 'start', 'url'];
 
     /**
      * Returns all the details of this course.
@@ -53,8 +53,10 @@ class Course extends Model implements PropertyModelContract
      * 
      * @return string
      */
-    public function getDurationAttribute($value)
+    public function getDurationTextAttribute()
     {
+        $value = $this->duration;
+        
         if ($value > 31) {
             $months = $value - 31;
             return $months . ' ' . ($months == 1 ? 'Month' : 'Months');
@@ -79,7 +81,7 @@ class Course extends Model implements PropertyModelContract
      */
     public function getUrlAttribute($value)
     {
-        return '/course' . '/' . $this->getKey() . '/' . $value;
+        return '/course' . '/' . $this->getKey() . '/' . $this->slug;
     }
 
     /**
@@ -128,7 +130,7 @@ class Course extends Model implements PropertyModelContract
             'description' => 'required',
             'duration' => 'required',
             'start' => 'required',
-            'active' => 'required|boolean',
+            'status' => 'required|string',
         ];
     }
 }

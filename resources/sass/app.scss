@@ -397,11 +397,11 @@ th {
 
 .section {
     position: relative;
-    padding: 30px 20px 60px;
+    padding: 3rem 20px 6rem;
 }
 
 .content-sections .section:last-child {
-    padding-bottom: 90px;
+    padding-bottom: 6rem;
 }
 
 .section:after {
@@ -416,7 +416,7 @@ th {
 
 .section.features {
     padding: 0;
-    background-color: #163954;
+    background-color: #3f82b5;
     color: white;
 }
 
@@ -479,6 +479,8 @@ th {
 }
 
 .featured-content .desc {
+    font-size: 0.925rem;
+    line-height: 2;
     max-height: 300px;
     overflow: hidden;
     margin-bottom: 0 !important;
@@ -489,7 +491,7 @@ th {
     padding: 11px;
     display: inline-block;
     vertical-align: top;
-    max-width: 257px;
+    max-width: 270px;
 }
 
 .course:hover {
@@ -508,7 +510,7 @@ th {
 }
 
 .course-title {
-    margin-bottom: 5px;
+    margin-bottom: 14px;
     text-transform: uppercase;
     font-size: 0.9rem;
     font-weight: 500;
@@ -518,7 +520,7 @@ th {
 .course-desc {
     color: $text-gray;
     margin-bottom: 19px;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
 }
 
 .batch-details {
@@ -543,8 +545,9 @@ th {
 }
 
 .section .desc {
+    font-size: 0.9rem;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 4rem;
 }
 
 .contact-btn {
@@ -645,8 +648,8 @@ th {
 .about .desc,
 .course-details .desc {
     font-weight: 400;
-    line-height: 1.7rem;
-    font-size: 0.82rem;
+    line-height: 2rem;
+    font-size: 0.925rem;
 }
 
 .about .desc p,
@@ -887,12 +890,13 @@ th {
     }
 
     .carousel-inner {
-        display: table;
-        width: 40%;
-        top: 50%;
+        width: 80%;
+        height: 26%;
+        bottom: 0%;
         left: 0%;
-        transform: translate(0%, -50%);
+        transform: translate(10%, 0%);
         text-align: left;
+        border-radius: 2rem;
     }
 
     .form-col.md {

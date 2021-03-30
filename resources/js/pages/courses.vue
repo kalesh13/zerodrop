@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         onSuccess: function (data) {
-            this.courses = data;
+            this.courses = data.data;
         },
     },
     components: { CourseCard },

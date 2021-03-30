@@ -8,7 +8,7 @@ a(:href='course.url')
         span.float-right.value(v-text='course.start')
     .batch-details
         span.text-left DURATION
-        span.float-right.value(v-text='course.duration')
+        span.float-right.value(v-text='course.durationText')
 </template>
 
 <script>

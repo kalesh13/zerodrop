@@ -42,7 +42,7 @@ Route::get('/', 'Pages\PageController@home');
 Route::get('/about', 'Pages\PageController@about');
 Route::get('/contact', 'Pages\PageController@contact');
 Route::get('/courses', 'Courses\CourseController@renderAll');
-Route::get('/course/{id}/{title}', 'Courses\CourseController@renderCourse');
+Route::get('/course/{id}/{title?}', 'Courses\CourseController@renderCourse');
 
 Route::post('/contact', 'Tickets\TicketController@create');
 Route::post('/subscribe', 'Subscribers\SubscriberController@subscribe');

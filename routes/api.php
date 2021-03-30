@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('teams', 'Teams\TeamController@all');
+Route::get('courses', 'Courses\CourseController@all');
+Route::get('course/{id}', 'Courses\CourseController@retreive');
+Route::get('page/{page}', 'Pages\PageController@retreive');
 
 Route::prefix('admin')->group(function () {
     Route::post('login', 'Auth\LoginController@login');
@@ -27,12 +31,8 @@ Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::post('logout', 'Auth\LoginController@logout');
     Route::post('course', 'Courses\CourseController@create');
     Route::patch('course/{id}', 'Courses\CourseController@update');
-    Route::get('course/{id}', 'Courses\CourseController@retreive');
     Route::patch('page/{page}', 'Pages\PageController@update');
-    Route::get('page/{page}', 'Pages\PageController@retreive');
 });
-
-Route::get('courses', 'Courses\CourseController@all');
 
 Route::middleware('auth:api')->group(function () {
     Route::post('upload', 'FileController@upload');

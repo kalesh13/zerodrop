@@ -1,0 +1,16 @@
+.section.single-section
+    .container-fluid
+        .col-sm-12
+            .title.text-left.d-inline-block
+                block page_title
+        .col-sm-12.pt-4
+            loading-component(v-if='df.fetching')
+            .row(v-else)
+                form.form-horizontal.col-md-7(method='POST', @submit.prevent)
+                    block page_form
+                update-widget(
+                    :status='pu.submissionResponse',
+                    :update='true',
+                    @publish='onSubmit',
+                    @cancel='$emit("cancel")',
+                )

@@ -34,7 +34,7 @@ class HomePage extends PageBase implements Renderable
             "feature_image" => "/images/feature_image_2.jpg",
             "carousal_text" => "Lorem Ipsum Dolor sumit",
             "feature_course" => "",
-            "course_description" => "Still have some query? Ring us on the number provided or use the form given below.",
+            "course_description" => "Our courses prepares you with real life exposure in different industries.",
             "contact_description" => "Still have some query? Ring us on the number provided or use the form given below.",
             "contact_phone" => "+91-0476123456",
             "meta_title" => "Zerodrop Technical Training Center",

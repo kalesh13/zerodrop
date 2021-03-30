@@ -1,0 +1,10 @@
+.container-fluid
+    .col-sm-12
+        .title.text-left.d-inline-block
+            block title
+        .pull-right.d-inline-block.theme-btn.all-btn(@click='$emit("toggle", true)')
+            block new_button_text
+    .col-sm-12.pt-4
+        loading-component(v-if='df.fetching')
+        template(v-else)
+            block table

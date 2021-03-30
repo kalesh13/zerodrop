@@ -43,7 +43,7 @@ class CourseController extends Controller
      */
     public function renderCourse($id)
     {
-        return view('courses_page')->with('data', $this->retreive($id)->toArray());
+        return view('course_page')->with('data', $this->retreive($id)->toArray());
     }
 
     /**

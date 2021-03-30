@@ -24,9 +24,11 @@ class CourseRepo extends SimpleModelRepo implements ICourseRepo
             function ($query) use ($request) {
                 $this->setSearchColumn('title');
                 $this->setSearchOnQuery($query, $request);
+
+                $this->setFilterColumn('status');
                 $this->setFilterOnQuery($query, $request);
             }
-        )->paginate($per_page);
+        )->paginate($request->get('limit', $per_page));
     }
 
     /**
