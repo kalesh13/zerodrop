@@ -25,23 +25,4 @@ interface FileUploader
      * @return string relative url of the saved file.
      */
     public function save();
-
-    /**
-     * Returns true, if the uploaded file is an image or pdf conversion and
-     * needs a resize.
-     * 
-     * @return bool
-     */
-    public function needsResize();
-
-    /**
-     * Check if this uploader restricts upload only to administrators. If so, 
-     * determine whether the user is allowed to upload files through this uploader.
-     * 
-     * If no user is passed as argument, authenticated user is checked.
-     * 
-     * @param \App\Models\User $user
-     * @return bool
-     */
-    public function isUploadAllowedForUser($user = null);
 }

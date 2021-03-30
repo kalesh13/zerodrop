@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Services\Files\Uploaders;
 
-interface UploaderProperties
+use App\Contracts\UploaderProperties;
+
+abstract class BaseUploaderProperties implements UploaderProperties
 {
-    /**
-     * The mimes supported by this uploader.
-     * 
-     * @return array
-     */
-    public function allowedMimes();
-
     /**
      * The maximum allowed file size of this uploader.
      * 
      * @return int
      */
-    public function allowedSize();
+    public function allowedSize()
+    {
+        return 8192;
+    }
 
     /**
      * Returns the error message for invalid uploads. Certain filetypes are allowed 
@@ -25,5 +23,8 @@ interface UploaderProperties
      * 
      * @return string
      */
-    public function notAllowedMessage();
+    public function notAllowedMessage()
+    {
+        return 'Not authorized to upload files of type' . implode(', ', $this->allowedMimes());
+    }
 }

@@ -25,8 +25,6 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::post('logout', 'Auth\LoginController@logout');
-    Route::post('imageUpload', 'FilesController@storeImage');
-    Route::post('docUpload', 'FilesController@storeDocs');
     Route::post('course', 'Courses\CourseController@create');
     Route::patch('course/{id}', 'Courses\CourseController@update');
     Route::get('course/{id}', 'Courses\CourseController@retreive');
@@ -34,9 +32,11 @@ Route::prefix('admin')->middleware(['auth.admin'])->group(function () {
     Route::get('page/{page}', 'Pages\PageController@retreive');
 });
 
-Route::get('courses', 'Courses\CourseController@getActiveCourses');
-Route::get('courses/all/{limit?}', 'Courses\CourseController@getAllActiveCourses');
+Route::get('courses', 'Courses\CourseController@all');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function () {
+    Route::post('upload', 'FileController@upload');
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 });
