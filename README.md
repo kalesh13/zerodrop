@@ -1,62 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="left"><a href="https://laravel.com" target="_blank"><img src="https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/logo.png?raw=true" width="200"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## About this project
 
-## About Laravel
+Zerodrop, was an educational institution providing short term career oriented courses, something similar to bootcamps in the west. They approached me in 2018 to build a web platform for their institution.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Since the institution is longer functioning, I've obtained permission to use it in my portfolio. This repo will give you an idea of my backend and frontend coding style, design and architectural decisions I've taken during the development.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Work
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The project requirements were simple to start with. Zerodrop needed a website where potential students can get to know the institution, the courses they offered and a contact form. They also needed a backend dashboard which allows administrators to perform CRUD operations on courses.
 
-## Learning Laravel
+### Dependencies
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The application is built on top of Laravel and VueJs for backend and frontend respectively.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+To make my development easier, I've developed some open source packages and two of these are used in this project.
 
-## Laravel Sponsors
+- **[Zauth](https://github.com/kalesh13/z-auth)** - This is a token based authentication library I have created for Laravel. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+  Passport was too heavy for my use cases and there was no Sanctum back then. Zauth allows me to create role based user accounts, multiple API clients, and a common guard for both web and API requests. [Refer the repository.](https://github.com/kalesh13/z-auth)
 
-### Premium Partners
+- **[Vuer](https://github.com/rheas-io/vuer)** - This is a collection of helper files (boilerplates) for VueJs 2. The package contains classes for API requests and other common tasks. [Refer the repository.](https://github.com/rheas-io/vuer)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+### Screenshots
 
-## Contributing
+[home]: https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/home.png?raw=true
+[courses]: https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/courses-in-home.png?raw=true
+[course]: https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/course.png?raw=true
+[admin]: https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/admin.png?raw=true
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Home page
 
-## Code of Conduct
+The landing page consists of a carousel, a featured course section, a courses section, and a contact form.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Carousel and contact form is loaded via blade template, and all other sections are rendered using VueJs components.
 
-## Security Vulnerabilities
+![Zerodrop landing page][home]
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Courses section on the landing page
 
-## License
+A dynamically loaded section showing four courses using VueJs components. [Refer component code.](https://github.com/kalesh13/zerodrop/blob/main/resources/js/pages/home/courses.vue)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![Courses section][courses]
+
+#### A single course page
+
+This page shows the details of a single course and is fully rendered using Laravel Blade ie there is no VueJs route for this page.
+
+![Course page][course]
+
+#### Administrator dashboard
+
+Administrator dashboard is a VueJs SPA which allows updating most sections of the frontend like selecting the featured course to show on the frontend, updating descriptions that are displayed on each section, adding a map to contact page, updating contact address, updating social media links, updating logo etc.
+
+> Dashboard also allows updating SEO meta tags of each pages and courses for better SEO.
+
+![Administrator dashboard][admin]
+
+> **Note:** The project was initially built using Laravel 5.6 and VueJs 2. Recently I updated it to Laravel 8 so that clients get to evaluate on my current experience.
+>
+> **Rewrite was mainly on the API and VueJs components only. Ignore the SASS and HTML structure for now. Those were written in 2018 when I was a beginner with no experience on SASS.**
+>
+> **If time permits, I'll update it to reflect my current experience.**
