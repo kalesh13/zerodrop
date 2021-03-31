@@ -7,6 +7,12 @@ Zerodrop, was an educational institution providing short term career oriented co
 
 Since the institution is longer functioning, I've obtained permission to use it in my portfolio. This repo will give you an idea of my backend and frontend coding style, design and architectural decisions I've taken during the development.
 
+> **Note:** The project was initially built using Laravel 5.6 and VueJs 2. Recently I refactored and upgraded it to Laravel 8 so that clients get to evaluate on my current experience.
+>
+> **Rewrite was mainly on the API and VueJs front only. Ignore the SASS and HTML structure for now. Those were written in 2018 when I was a beginner with no experience on SASS.**
+>
+> **If time permits, I'll update it to reflect my current experience.**
+
 ## Work
 
 The project requirements were simple to start with. Zerodrop needed a website where potential students can get to know the institution, the courses they offered and a contact form. They also needed a backend dashboard which allows administrators to perform CRUD operations on courses.
@@ -57,11 +63,3 @@ Administrator dashboard is a VueJs SPA which allows updating most sections of th
 > Dashboard also allows updating SEO meta tags of each pages and courses for better SEO.
 
 ![Administrator dashboard][admin]
-
-## Remarks
-
-The project was initially built using Laravel 5.6 and VueJs 2. Recently I updated it to Laravel 8 so that clients get to evaluate on my current experience.
-
-**Rewrite was mainly on the API and VueJs components only. Ignore the SASS and HTML structure for now. Those were written in 2018 when I was a beginner with no experience on SASS.**
-
-**If time permits, I'll update it to reflect my current experience.**
