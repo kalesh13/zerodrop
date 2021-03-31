@@ -1,4 +1,5 @@
 <p align="left"><a href="https://laravel.com" target="_blank"><img src="https://github.com/kalesh13/zerodrop/blob/main/public/images/screenshots/logo.png?raw=true" width="200"></a></p>
+<br/>
 
 ## About this project
 
@@ -57,8 +58,10 @@ Administrator dashboard is a VueJs SPA which allows updating most sections of th
 
 ![Administrator dashboard][admin]
 
-> **Note:** The project was initially built using Laravel 5.6 and VueJs 2. Recently I updated it to Laravel 8 so that clients get to evaluate on my current experience.
->
-> **Rewrite was mainly on the API and VueJs components only. Ignore the SASS and HTML structure for now. Those were written in 2018 when I was a beginner with no experience on SASS.**
->
-> **If time permits, I'll update it to reflect my current experience.**
+## Remarks
+
+The project was initially built using Laravel 5.6 and VueJs 2. Recently I updated it to Laravel 8 so that clients get to evaluate on my current experience.
+
+**Rewrite was mainly on the API and VueJs components only. Ignore the SASS and HTML structure for now. Those were written in 2018 when I was a beginner with no experience on SASS.**
+
+**If time permits, I'll update it to reflect my current experience.**
